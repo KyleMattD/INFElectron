@@ -1,0 +1,52 @@
+
+<form id="form">
+    <label for="Productname">Name</label>
+    <input type="text" id="Productname" name="ProductName" [(ngModel)]="newProduct.prod_name" >
+    <br>
+    <label for="ProductNum">Number</label>
+    <input type="text" id="ProductNum" name="ProductNumber" [(ngModel)]="newProduct.prod_num" >
+    <br>
+    <button type="submit" (click)="addProduct()">Insert</button>
+</form>
+
+<form id="form">
+  <label for="Productname">Name</label>
+  <input type="text" id="Productname" name="Name" [(ngModel)]="editProduct.prod_name" >
+  <br>
+  <label for="ProductNum">Number</label>
+  <input type="text" id="ProductNum" name="Number" [(ngModel)]="editProduct.prod_num" >
+  <br>
+  <label for="ProductID">ID</label>
+  <input type="text" id="ProductID" name="IDd" [(ngModel)]="editProduct.prod_ID" >
+  <br>
+  <button type="submit" (click)="updateProduct()">Edit</button>
+</form>
+
+<form id="form">
+  <label for="ProductID">ID</label>
+  <input type="text"id="ID" name="ID" [(ngModel)]="ID">
+  <br>
+  <button type="submit" (click)="deleteProduct()">Delete</button>
+</form>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef> ID</th>
+      <td mat-cell *matCellDef="let element"> {{element.ProdID}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.prod_name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Number">
+      <th mat-header-cell *matHeaderCellDef> ProdTypeID </th>
+      <td mat-cell *matCellDef="let element"> {{element.prod_num}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+

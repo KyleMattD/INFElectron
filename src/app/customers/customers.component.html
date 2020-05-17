@@ -1,0 +1,64 @@
+<form id="form">
+    <label for="Name">Name</label>
+    <input type="text" id="Name" name="name" [(ngModel)]="newCustomer.cust_name" >
+    <br>
+    <label for="Surname">Surname</label>
+    <input type="text" id="Surname" name="surname" [(ngModel)]="newCustomer.cust_surname">
+    <br>
+    <label for="Number">Number</label>
+    <input type="text" id="Number" name="number" [(ngModel)]="newCustomer.cust_num">
+    <br>
+    <button type="submit" (click)="addCustomer()">Insert</button>
+</form>
+
+<form id="form">
+    <label for="Name">Name</label >
+    <input type="text" id="Name" name="nameE" [(ngModel)]="editCustomer.cust_name">
+    <br>
+    <label for="Surname">Surname</label>
+    <input type="text" id="Surname" name="surnameE" [(ngModel)]="editCustomer.cust_surname" >
+    <br>
+    <label for="Number">Number</label>
+    <input type="text" id="Number" name="numberE" [(ngModel)]="editCustomer.cust_num">
+    <br>
+    <label for="CustomerID">CustomerID</label>
+    <input type="text" id="CustomerID" name="customerIDE" [(ngModel)]="editCustomer.cust_ID" >
+    <br>
+    <button id="Edit" type="submit" (click)="updateCustomer()" >Edit</button>
+</form>
+
+<form id="form">
+   <label for="ID">Customer ID</label>
+   <input type="text"id="ID" name="ID" [(ngModel)]="ID">
+   <br>
+   <button type="submit" (click)="deleteCustomers()">Delete</button>
+</form>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.cust_name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Surname">
+      <th mat-header-cell *matHeaderCellDef>Surname</th>
+      <td mat-cell *matCellDef="let element"> {{element.cust_surname}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="Number">
+      <th mat-header-cell *matHeaderCellDef> Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.cust_num}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.cust_ID}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  
+  

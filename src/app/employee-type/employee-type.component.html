@@ -1,0 +1,44 @@
+
+<form id="form">
+    <label for="description">Description</label>
+    <input type="text" id="Description" name="Description"[(ngModel)]="newEmployeeType.empType_description" >
+    <br>
+    <button type="submit" (click)="addEmployeeType()">Insert</button>
+</form>
+
+<form id="form">
+    <label for="Description">Description</label>
+    <input type="text" id="Description" name="DescriptionN"[(ngModel)]="editEmployeeType.empType_description" >
+    <br>
+    <label for="EmployeeTypeId">EmployeeTypeId</label>
+    <input type="text" id="EmpTypeID" [(ngModel)]="editEmployeeType.empType_ID" >
+    <br>
+    <button type="submit" (click)="updateEmployeeType()">Edit</button>
+</form>
+
+<form id="form">
+    <label for="EmployeeTypeId">EmployeeTypeId</label>
+    <input type="text"id="ID" name="ID" [(ngModel)]="ID">
+    <br>
+    <button type="submit" (click)="deleteEmployeeType()">Delete</button>
+</form>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="Description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element"> {{element.emType_Description}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element"> {{element.empType_ID}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  
+  
+  
